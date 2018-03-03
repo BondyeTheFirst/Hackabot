@@ -6,6 +6,7 @@ from telegram.ext import (Updater, CommandHandler, MessageHandler, Filters, Rege
                           ConversationHandler)
 
 import logging
+import json
 
 # Enable logging
 logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
@@ -32,8 +33,13 @@ def lista(bot, update):
 
     previous = update.message.text
     update.message.reply_text('A breve i ragazzi dovrebbero fare anche questo...perdona la loro lentezza, sono giovani\n\nAd ogni modo se ti interessa posso aiutarti con la creazione di un evento tuo.',
-                              #reply_markup=ReplyKeyboardRemove())
-                              reply_markup = ReplyKeyboardMarkup(reply_keyboard, one_time_keyboard=True))
+                                       reply_markup = ReplyKeyboardMarkup(reply_keyboard, one_time_keyboard=True))
+    #TODO: extract data from https://dati.trentino.it/dataset/eventi-del-comune-di-ville-d-anaunia
+    '''
+    with open("search.json", "r") as f:
+    j = json.load(f)
+    print j
+    '''
 
     return LISTAC
 
